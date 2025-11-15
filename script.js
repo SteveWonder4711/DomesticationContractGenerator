@@ -173,13 +173,5 @@ function generateContract() {
 }
 
 function downloadContract() {
-  var prtContent = document.getElementById("main");
-  var docheight = prtContent.height;
-  var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=' + docheight + ',toolbar=0,scrollbars=0,status=0');
-  WinPrint.document.write('<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie"><link rel="stylesheet" href="style.css">');
-  WinPrint.document.write(prtContent.innerHTML);
-  WinPrint.document.close();
-  WinPrint.focus();
-  WinPrint.print();
-  WinPrint.close();
+  window.print();
 }
