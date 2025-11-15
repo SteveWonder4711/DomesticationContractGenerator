@@ -1,14 +1,18 @@
+@media print, screen {
+
 .header {
 	display: flex;
 	gap: 20px;
 }
 
 .contract {
+	print-color-adjust: exact;
 	background-color: #b72650;
 	padding: 0 10px 10px 10px;
 	margin: 0px;
 	width: 800px;
 	height: auto;
+	page-break-after: always;
 }
 
 .item-grid {
@@ -128,4 +132,22 @@ h2 {
   width: 680px;
   float: left;
 }
+
+}
+
+@media print {
+	.noprint {
+		display: none;
+	}
+
+	@page {
+		margin: 0;	
+	}
+
+	.main {
+		page-break-after: always;
+		height: 100vh;
+	}
+}
+
 

@@ -1,9 +1,10 @@
 function generateContract() {
-    var ownername = document.getElementById("affininame").value;
-    var petname = document.getElementById("petname").value;
-    var petfirstname = petname.split(" ")[0];
+  alert("grrr");
+  var ownername = document.getElementById("affininame").value;
+  var petname = document.getElementById("petname").value;
+  var petfirstname = petname.split(" ")[0];
 
-    var output = `<div class="contract contract-screen-reader contract-screen-reader-focusable">
+  var output = `<div class="contract contract-screen-reader contract-screen-reader-focusable">
     <div class="header">
       <p>
         <img
@@ -113,29 +114,29 @@ function generateContract() {
       <br />
     </ol>`;
 
-    var additionalterms = [];
+  var additionalterms = [];
 
-    var form = document.getElementById("additionals");
-    var i;
-    for (i=0;i<10;i+=1) {
-        var addition = form.elements[i].value;
-        if(addition != "") {
-            additionalterms.push(addition);
-        }
+  var form = document.getElementById("additionals");
+  var i;
+  for (i = 0; i < 10; i += 1) {
+    var addition = form.elements[i].value;
+    if (addition != "") {
+      additionalterms.push(addition);
     }
+  }
 
-    if (additionalterms.length != 0) {
-        output += `<hr class="separation" />
+  if (additionalterms.length != 0) {
+    output += `<hr class="separation" />
             <h3>
                 Additional terms that your Guardian,
                 <span class="fill-in">${ownername}</span>, has stipulated.
             </h3>
             <hr class="separation" />
             <ol type="1" start="7">`
-        var i;
-        for(i=0;i<additionalterms.length;i+=1) {
-            var term = additionalterms[i];
-            output += `<li>
+    var i;
+    for (i = 0; i < additionalterms.length; i += 1) {
+      var term = additionalterms[i];
+      output += `<li>
                     <div class="item-grid">
                     <p class="item-text">
                         ${term}
@@ -148,11 +149,11 @@ function generateContract() {
                     </div>
                 </li>
                 <br />`;
-        }
-        output += "</ol>";
     }
+    output += "</ol>";
+  }
 
-    output += `<hr class="separation" />
+  output += `<hr class="separation" />
       <h3>
         Sign here to acknowledge your understanding and acceptance of these terms
       </h3>
@@ -169,7 +170,17 @@ function generateContract() {
       </div>
     </div>`;
 
-    document.getElementById("main").innerHTML = output;
+  document.getElementById("main").innerHTML = output;
 }
 
-
+function downloadContract() {
+  var prtContent = document.getElementById("main");
+  var docheight = prtContent.height;
+  var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=' + docheight + ',toolbar=0,scrollbars=0,status=0');
+  WinPrint.document.write('<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie"><link rel="stylesheet" href="style.css">');
+  WinPrint.document.write(prtContent.innerHTML);
+  WinPrint.document.close();
+  WinPrint.focus();
+  WinPrint.print();
+  WinPrint.close();
+}
