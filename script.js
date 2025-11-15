@@ -1,5 +1,4 @@
 function generateContract() {
-  alert("grrr");
   var ownername = document.getElementById("affininame").value;
   var petname = document.getElementById("petname").value;
   var petfirstname = petname.split(" ")[0];
