@@ -1,45 +1,36 @@
+<!DOCTYPE html>
+<html>
 <head>
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-
-<link rel="stylesheet" href="style.css">
-
-<script src="script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
+<body>
+    <div class="noprint">
+        <label for="petname">Floret Name: </label>
+        <input type="text" id="petname" name="petname"><br><br>
 
-<div class="noprint">
-    <label for="petname">Floret Name: </label>
-    <input type="text" id="petname" name="petname"><br><br>
+        <label for="affininame">Affini Name: </label>
+        <input type="text" id="affininame" name="affininame"><br><br>
 
-    <label for="affininame">Affini Name: </label>
-    <input type="text" id="affininame" name="affininame"><br><br>
+        <form id="additionals">
+            <label for="additional0">Additional Terms: </label><br>
+            <input type="text" id="additional0" name="additional0"><br>
+            <input type="text" id="additional1" name="additional1"><br>
+            <input type="text" id="additional2" name="additional2"><br>
+            <input type="text" id="additional3" name="additional3"><br>
+            <input type="text" id="additional4" name="additional4"><br>
+            <input type="text" id="additional5" name="additional5"><br>
+            <input type="text" id="additional6" name="additional6"><br>
+            <input type="text" id="additional7" name="additional7"><br>
+            <input type="text" id="additional8" name="additional8"><br>
+            <input type="text" id="additional9" name="additional9"><br>
+        </form>
 
-    <form id="additionals">
-        <label for="additional0">Additional Terms: </label><br>
-        <input type="text" id="additional0" name="additional0"><br>
-        <input type="text" id="additional1" name="additional1"><br>
-        <input type="text" id="additional2" name="additional2"><br>
-        <input type="text" id="additional3" name="additional3"><br>
-        <input type="text" id="additional4" name="additional4"><br>
-        <input type="text" id="additional5" name="additional5"><br>
-        <input type="text" id="additional6" name="additional6"><br>
-        <input type="text" id="additional7" name="additional7"><br>
-        <input type="text" id="additional8" name="additional8"><br>
-        <input type="text" id="additional9" name="additional9"><br>
-    </form>
+        <input type="button" onclick="generateContract();" value="Generate">
+        <input type="button" onclick="downloadContract();" value="Download">
+    </div>
 
-
-
-    <input type="button" onclick="generateContract();" value="Generate">
-
-
-    <input type="button" onclick="downloadContract();" value="Download">
-</div>
-
-<div class="main" id="main" />
-
-
-
-
-
-
+    <div class="main" id="main"></div>
+</body>
+</html>
