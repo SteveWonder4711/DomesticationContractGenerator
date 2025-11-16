@@ -31,7 +31,6 @@ function generateContract() {
   for (i = 0; i < 10; i += 1) {
     var addition = form.elements[i].value;
     if (addition != "") {
-      alert(addition);
       additionalterms.push(addition);
     }
   }
@@ -39,12 +38,10 @@ function generateContract() {
   if (additionalterms.length != 0) {
     var additionalblock = document.getElementById("additionalterms");
     additionalblock.style.display = "block";
-    alert("why this no work");
     var additionalshtml = "";
     var i;
     for (i = 0; i < additionalterms.length; i += 1) {
       var term = additionalterms[i];
-      alert(term);
       additionalshtml += `<li>
                     <div class="item-grid">
                     <p class="item-text">
