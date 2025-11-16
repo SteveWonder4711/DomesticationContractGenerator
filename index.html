@@ -5,26 +5,43 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
-<body>
+<body onload="startup();">
     <div class="noprint">
         <label for="petname">Floret Name: </label>
-        <input type="text" id="petname" name="petname"><br><br>
+        <input type="text" id="petname" name="petname" onchange="generateContract();"><br><br>
 
         <label for="affininame">Affini Name: </label>
-        <input type="text" id="affininame" name="affininame"><br><br>
+        <input type="text" id="affininame" name="affininame" onchange="generateContract();">
+        <div>
+            <label for="affinipronouns">Affini Pronouns: </label>
+            <select id="affinipronouns" onchange="pronounSelect();">
+                <option value="she her">She/Her</option>
+                <option value="he his">He/Him</option>
+                <option value="they their">They/Them</option>
+                <option value="it its">It/Its</option>
+                <option value="custom">Custom</option>
+            </select>
+            <div id="custompronouns" style="display:none">
+            <input type="text" name="personalpronoun" id="personalpronoun" placeholder="Personal (she/he/they..)" onchange="customPronouns();">
+            <input type="text" name="possesivepronoun" id="possesivepronoun" placeholder="Possesive (her/his/their...)" onchange="customPronouns();">
+            </div>
+        </div>
+
+
+        <br><br>
 
         <form id="additionals">
             <label for="additional0">Additional Terms: </label><br>
-            <input type="text" id="additional0" name="additional0"><br>
-            <input type="text" id="additional1" name="additional1"><br>
-            <input type="text" id="additional2" name="additional2"><br>
-            <input type="text" id="additional3" name="additional3"><br>
-            <input type="text" id="additional4" name="additional4"><br>
-            <input type="text" id="additional5" name="additional5"><br>
-            <input type="text" id="additional6" name="additional6"><br>
-            <input type="text" id="additional7" name="additional7"><br>
-            <input type="text" id="additional8" name="additional8"><br>
-            <input type="text" id="additional9" name="additional9"><br>
+            <input type="text" id="additional0" name="additional0" onchange="generateContract();"><br>
+            <input type="text" id="additional1" name="additional1" onchange="generateContract();"><br>
+            <input type="text" id="additional2" name="additional2" onchange="generateContract();"><br>
+            <input type="text" id="additional3" name="additional3" onchange="generateContract();"><br>
+            <input type="text" id="additional4" name="additional4" onchange="generateContract();"><br>
+            <input type="text" id="additional5" name="additional5" onchange="generateContract();"><br>
+            <input type="text" id="additional6" name="additional6" onchange="generateContract();"><br>
+            <input type="text" id="additional7" name="additional7" onchange="generateContract();"><br>
+            <input type="text" id="additional8" name="additional8" onchange="generateContract();"><br>
+            <input type="text" id="additional9" name="additional9" onchange="generateContract();"><br>
         </form>
 
         <input type="button" onclick="generateContract();" value="Generate">
@@ -66,7 +83,7 @@
             <div class="item-grid">
             <p class="item-text">
                 Your Guardian, <span class="fill-in affinifillin"></span>, owns
-                you. You are her property. You do not have political rights in the
+                you. You are <span class="affinipossesive">her</span> property. You do not have political rights in the
                 Affini Compact.
             </p>
             <div class="item-checkbox">
@@ -112,7 +129,7 @@
         <li>
             <div class="item-grid">
             <p class="item-text">
-                As the property of your Guardian, she may add, remove, or modify
+                As the property of your Guardian, <span class="affinipersonal">she</span> may add, remove, or modify
                 conditions of your wardship at any time for any reason within the
                 limits established by the Human Domestication Treaty.
             </p>
@@ -142,7 +159,7 @@
         <br>
         </ol>
         
-        <div id="additionalterms">
+        <div id="additionalterms" style="display:none">
             <hr class="separation"></hr>
             <h3>
                 Additional terms that your Guardian,
