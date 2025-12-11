@@ -9,6 +9,9 @@
 
 <body onload="startup();">
     <div class="noprint">
+        <label for="customcontractname">Custom Contract Name (custom species) </label><br>
+        <input type="text" id="customcontractname" name="customcontractname" onchange="generateContract();"><br><br>
+
         <label for="petname">Floret Name: </label>
         <input type="text" id="petname" name="petname" onchange="generateContract();"><br><br>
 
@@ -31,7 +34,6 @@
                     onchange="customPronouns();">
                 <input type="text" name="possesivepronoun" id="possesivepronoun"
                     placeholder="Possesive (her/his/their...)" onchange="customPronouns();">
-                print("click at", turn)
             </div>
         </div>
 
@@ -62,7 +64,7 @@
                     <img src="https://glitchyrobo.space/media/affini%20emblem%20gold.png"
                         alt="The emblem of the Affini Compact, in gold" width="50" height="50/" />
                 </p>
-                <h2>Human Domestication Contract</h2>
+                <h2><span class="contractname">Human</span> Domestication Contract</h2>
             </div>
             <hr class="separation" />
             <ol type="1">
@@ -106,7 +108,7 @@
                     <div class="item-grid">
                         <p class="item-text">
                             You do have a guarantee of your wellbeing, as defined in § 57 of the
-                            Human Domestication Treaty.
+                            <span class="contractname">Human</span> Domestication Treaty.
                         </p>
                         <div class="item-checkbox">
                             <div class="checkbox">
@@ -123,7 +125,8 @@
                             This guarantee of wellbeing does not preclude your <span class="plural" data-no="Guardian"
                                 data-yes="Guardians">Guardian</span>
                             from
-                            disciplining you, as outlined in § 61 of the Human Domestication
+                            disciplining you, as outlined in § 61 of the <span class="contractname">Human</span>
+                            Domestication
                             Treaty.
                         </p>
                         <div class="item-checkbox">
@@ -142,7 +145,7 @@
                                 data-yes="Guardians">Guardian</span>, <span class="affinipersonal">she</span> may add,
                             remove, or modify
                             conditions of your wardship at any time for any reason within the
-                            limits established by the Human Domestication Treaty.
+                            limits established by the <span class="contractname">Human</span> Domestication Treaty.
                         </p>
                         <div class="item-checkbox">
                             <div class="checkbox">

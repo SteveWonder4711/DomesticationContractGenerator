@@ -89,6 +89,18 @@ function generateContract() {
     currentfillin.innerHTML = fillinvalue;
   }
 
+  var contractname = document.getElementById("customcontractname").value;
+
+  var contractnamefillins = document.querySelectorAll(".contractname");
+
+  for (i = 0; i < contractnamefillins.length; i += 1) {
+    if (contractname == "") {
+      contractnamefillins[i].innerHTML = "Human";
+    } else {
+      contractnamefillins[i].innerHTML = contractname;
+    }
+  }
+
   var additionalterms = [];
 
   var form = document.getElementById("additionals");
