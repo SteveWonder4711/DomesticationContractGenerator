@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
+
 <body onload="startup();">
     <div class="noprint">
         <label for="petname">Floret Name: </label>
         <input type="text" id="petname" name="petname" onchange="generateContract();"><br><br>
 
-        <label for="affininame">Affini Name: </label>
+        <label for="affininame">Affini Name(s): </label>
         <input type="text" id="affininame" name="affininame" onchange="generateContract();">
-        <div>
+        <label for="affiniisplural">Multiple Owners: </label>
+        <input type="checkbox" id="affiniisplural" name="affiniisplural" onchange="checkplural();">
+
+        <div id="pronounselector">
             <label for="affinipronouns">Affini Pronouns: </label>
             <select id="affinipronouns" onchange="pronounSelect();">
                 <option value="she her">She/Her</option>
@@ -22,8 +27,11 @@
                 <option value="custom">Custom</option>
             </select>
             <div id="custompronouns" style="display:none">
-            <input type="text" name="personalpronoun" id="personalpronoun" placeholder="Personal (she/he/they..)" onchange="customPronouns();">
-            <input type="text" name="possesivepronoun" id="possesivepronoun" placeholder="Possesive (her/his/their...)" onchange="customPronouns();">
+                <input type="text" name="personalpronoun" id="personalpronoun" placeholder="Personal (she/he/they..)"
+                    onchange="customPronouns();">
+                <input type="text" name="possesivepronoun" id="possesivepronoun"
+                    placeholder="Possesive (her/his/their...)" onchange="customPronouns();">
+                print("click at", turn)
             </div>
         </div>
 
@@ -50,145 +58,154 @@
     <div class="main" id="main">
         <div class="contract">
             <div class="header">
-            <p>
-                <img
-                src="https://glitchyrobo.space/media/affini%20emblem%20gold.png"
-                alt="The emblem of the Affini Compact, in gold"
-                width="50"
-                height="50/"
-                />
-            </p>
-            <h2>Human Domestication Contract</h2>
+                <p>
+                    <img src="https://glitchyrobo.space/media/affini%20emblem%20gold.png"
+                        alt="The emblem of the Affini Compact, in gold" width="50" height="50/" />
+                </p>
+                <h2>Human Domestication Contract</h2>
             </div>
-        <hr class="separation" />
-        <ol type="1">
-        <li>
-            <div class="item-grid">
-            <p class="item-text">
-                Above all else, you, <span class="fill-in petfirstfillin"></span>, must obey your
-                Guardian, <span class="fill-in affinifillin"></span> in all
-                things. This is for your safety, wellbeing, and care.
-            </p>
-            <div class="item-checkbox">
-                <div class="checkbox">
-    <p>☐</p>
-                </div>
-            </div>
-            </div>
-        </li>
-        <br />
+            <hr class="separation" />
+            <ol type="1">
+                <li>
+                    <div class="item-grid">
+                        <p class="item-text">
+                            Above all else, you, <span class="fill-in petfirstfillin"></span>, must obey your
+                            <span class="plural" data-no="Guardian" data-yes="Guardians">Guardian</span>, <span
+                                class="fill-in affinifillin"></span> in all
+                            things. This is for your safety, wellbeing, and care.
+                        </p>
+                        <div class="item-checkbox">
+                            <div class="checkbox">
+                                <p>☐</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <br />
 
-        <li>
-            <div class="item-grid">
-            <p class="item-text">
-                Your Guardian, <span class="fill-in affinifillin"></span>, owns
-                you. You are <span class="affinipossesive">her</span> property. You do not have political rights in the
-                Affini Compact.
-            </p>
-            <div class="item-checkbox">
-                <div class="checkbox">
-                <p>☐</p>
-                </div>
-            </div>
-            </div>
-        </li>
-        <br />
+                <li>
+                    <div class="item-grid">
+                        <p class="item-text">
+                            Your <span class="plural" data-no="Guardian" data-yes="Guardians">Guardian</span>, <span
+                                class="fill-in affinifillin"></span>,
+                            <span class="plural" data-no="owns" data-yes="own">owns</span>
+                            you. You are <span class="affinipossesive">her</span> property. You do not have political
+                            rights in the
+                            Affini Compact.
+                        </p>
+                        <div class="item-checkbox">
+                            <div class="checkbox">
+                                <p>☐</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <br />
 
-        <li>
-            <div class="item-grid">
-            <p class="item-text">
-                You do have a guarantee of your wellbeing, as defined in § 57 of the
-                Human Domestication Treaty.
-            </p>
-            <div class="item-checkbox">
-                <div class="checkbox">
-                <p>☐</p>
-                </div>
-            </div>
-            </div>
-        </li>
-        <br />
+                <li>
+                    <div class="item-grid">
+                        <p class="item-text">
+                            You do have a guarantee of your wellbeing, as defined in § 57 of the
+                            Human Domestication Treaty.
+                        </p>
+                        <div class="item-checkbox">
+                            <div class="checkbox">
+                                <p>☐</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <br />
 
-        <li>
-            <div class="item-grid">
-            <p class="item-text">
-                This guarantee of wellbeing does not preclude your Guardian from
-                disciplining you, as outlined in § 61 of the Human Domestication
-                Treaty.
-            </p>
-            <div class="item-checkbox">
-                <div class="checkbox">
-                <p>☐</p>
-                </div>
-            </div>
-            </div>
-        </li>
-        <br />
+                <li>
+                    <div class="item-grid">
+                        <p class="item-text">
+                            This guarantee of wellbeing does not preclude your <span class="plural" data-no="Guardian"
+                                data-yes="Guardians">Guardian</span>
+                            from
+                            disciplining you, as outlined in § 61 of the Human Domestication
+                            Treaty.
+                        </p>
+                        <div class="item-checkbox">
+                            <div class="checkbox">
+                                <p>☐</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <br />
 
-        <li>
-            <div class="item-grid">
-            <p class="item-text">
-                As the property of your Guardian, <span class="affinipersonal">she</span> may add, remove, or modify
-                conditions of your wardship at any time for any reason within the
-                limits established by the Human Domestication Treaty.
-            </p>
-            <div class="item-checkbox">
-                <div class="checkbox">
-                <p>☐</p>
-                </div>
-            </div>
-            </div>
-        </li>
-        <br />
+                <li>
+                    <div class="item-grid">
+                        <p class="item-text">
+                            As the property of your <span class="plural" data-no="Guardian"
+                                data-yes="Guardians">Guardian</span>, <span class="affinipersonal">she</span> may add,
+                            remove, or modify
+                            conditions of your wardship at any time for any reason within the
+                            limits established by the Human Domestication Treaty.
+                        </p>
+                        <div class="item-checkbox">
+                            <div class="checkbox">
+                                <p>☐</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <br />
 
-        <li>
-            <div class="item-grid">
-            <p class="item-text">
-                Your full name is
-                <span class="fill-in petfillin"></span> from this moment
-                forward.
-            </p>
-            <div class="item-checkbox">
-                <div class="checkbox">
-                <p>☐</p>
-                </div>
-            </div>
-            </div>
-        </li>
-        <br>
-        </ol>
-        
-        <div id="additionalterms" style="display:none">
-            <hr class="separation"></hr>
-            <h3>
-                Additional terms that your Guardian,
-                <span class="fill-in affinifillin"></span>, has stipulated.
-            </h3>
-            <hr class="separation"></hr>
-            <ol id="termlist" type="1" start="7">
+                <li>
+                    <div class="item-grid">
+                        <p class="item-text">
+                            Your full name is
+                            <span class="fill-in petfillin"></span> from this moment
+                            forward.
+                        </p>
+                        <div class="item-checkbox">
+                            <div class="checkbox">
+                                <p>☐</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <br>
             </ol>
-        </div>
 
-        <hr class="separation" />
-      <h3>
-        Sign here to acknowledge your understanding and acceptance of these terms
-      </h3>
-      <hr class="separation" />
-      <div class="signature-and-biometric">
-        <hr class="separation" />
-        <div class="signature" />
-        <div class="biometric-box">
-          <div class="biometric-space"></div>
-          <div class="biometric-label">
-            BIOMETRIC
-          </div>
+            <div id="additionalterms" style="display:none">
+                <hr class="separation">
+                </hr>
+                <h3>
+                    Additional terms that your <span class="plural" data-no="Guardian"
+                        data-yes="Guardians">Guardian</span>,
+                    <span class="fill-in affinifillin"></span>, <span class="plural" data-no="has"
+                        data-yes="have">has</span> stipulated.
+                </h3>
+                <hr class="separation">
+                </hr>
+                <ol id="termlist" type="1" start="7">
+                </ol>
+            </div>
+
+            <hr class="separation" />
+            <h3>
+                Sign here to acknowledge your understanding and acceptance of these terms
+            </h3>
+            <hr class="separation" />
+            <div class="signature-and-biometric">
+                <hr class="separation" />
+                <div class="signature" />
+                <div class="biometric-box">
+                    <div class="biometric-space"></div>
+                    <div class="biometric-label">
+                        BIOMETRIC
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
     </div>
 
 
 
 
 </body>
+
 </html>

@@ -1,11 +1,25 @@
 let personalpronoun = "she";
 let possesivepronoun = "her";
+let isplural = false;
 
 function startup() {
   pronounSelect();
+  checkplural();
   generateContract();
 }
 
+function checkplural() {
+  isplural = document.getElementById("affiniisplural").checked;
+  if (isplural) {
+    document.getElementById("pronounselector").style.display = "none";
+    personalpronoun = "they";
+    possesivepronoun = "their";
+  } else {
+    document.getElementById("pronounselector").style.display = "block";
+    pronounSelect();
+  }
+  generateContract();
+}
 
 function pronounSelect() {
   var pronounlist = document.getElementById("affinipronouns");
@@ -62,7 +76,18 @@ function generateContract() {
     affinipossesive[i].innerHTML = possesivepronoun;
   }
 
+  var pluralfillins = document.querySelectorAll(".plural");
 
+  for (i = 0; i < pluralfillins.length; i += 1) {
+    var currentfillin = pluralfillins[i];
+    var fillinvalue;
+    if (isplural) {
+      fillinvalue = currentfillin.dataset.yes;
+    } else {
+      fillinvalue = currentfillin.dataset.no;
+    }
+    currentfillin.innerHTML = fillinvalue;
+  }
 
   var additionalterms = [];
 
